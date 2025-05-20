@@ -1,0 +1,56 @@
+﻿@model AtuHotelRebuilt.Models.Room
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+    <link rel="stylesheet" href="~/Content/login.css">
+</head>
+<body>
+    <div class="signup-container">
+        <div class="signup-form">
+            <div class="row">
+                <h3>Are you sure you want to delete this?</h3>
+                @{ var item = Model;
+
+                    
+                        <div class="col-md-6 form-group">
+                            <label for="">Room Number</label>
+                            <p>@Model.id</p>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="">Floor No</label>
+                            <p>@Model.floor_no</p>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="">Daily Cost</label>
+                            <p>@item.RoomArea.cost</p>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="">Room Size</label>
+                            <p>@item.RoomArea.roomsize</p>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="">Room Type</label>
+                            <p>@item.RoomType.RoomTypeName</p>
+                        </div>
+
+                    
+                }
+            </div>
+            <div class="form-group">
+                <form action="/Room/Delete" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="text" id="id" name="id" class="form-control" value="@Model.id" required style="display: none;" />
+                    <input type="text" id="floor_no" name="floor_no" class="form-control" value="@Model.floor_no" required style="display: none;" />
+                    <button type="submit" class="btn btn-primary w-auto">Delete Room</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

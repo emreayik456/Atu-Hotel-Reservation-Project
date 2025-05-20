@@ -1,0 +1,109 @@
+﻿@model AtuHotelRebuilt.Models.Staff
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    <link rel="stylesheet" href="~/Content/login.css">
+</head>
+<body>
+    <div class="signup-container">
+        <div class="signup-form">
+            <h2>Edit Staff</h2>
+            <form action="/Staff/Edit" method="post">
+                @Html.AntiForgeryToken()
+
+                <div class="row">
+                    <!-- First Name -->
+                    <div class="col-md-6 form-group">
+                        <label for="fname">First Name</label>
+                        <input type="text" id="fname" name="fname" class="form-control" value="@Model.fname" required>
+                    </div>
+
+                    <!-- Last Name -->
+                    <div class="col-md-6 form-group">
+                        <label for="lname">Last Name</label>
+                        <input type="text" id="lname" name="lname" class="form-control" value="@Model.lname" required>
+                    </div>
+
+                    <!-- Birth Date -->
+                    <div class="col-md-6 form-group">
+                        <label for="birthdate">Birth Date</label>
+                        <input type="date" id="birthdate" name="birthdate" class="form-control"
+                               value="@(Model.birthdate.ToString("yyyy-MM-dd"))" required>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="col-md-6 form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" id="phone" name="phone" class="form-control" value="@Model.phone" required>
+                    </div>
+
+                    <!-- TC Number -->
+                    <div class="col-md-6 form-group" style="display: none;">
+                        <label for="tcNumber">TC</label>
+                        <input type="text" id="tcNumber" name="tcNumber" class="form-control" value="@Model.tcNumber" readonly>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="col-md-6 form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" value="@Model.email" required>
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="col-md-6 form-group">
+                        <label>Gender</label><br>
+                        <input type="radio" id="male" name="gender" value="Male" @(Model.gender == false ? "checked" : "")>
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="Female" @(Model.gender == true ? "checked" : "")>
+                        <label for="female">Female</label>
+                    </div>
+
+                    <!-- Department ID -->
+                    <div class="col-md-6 form-group">
+                        <label for="DepartmentID">Department</label>
+                        <select id="DepartmentID" name="DepartmentID" class="form-control" required>
+                            <option value="">Select Department</option>
+                            <option value="1" @(Model.DepartmentID == 1 ? "selected" : "")>Kitchen</option>
+                            <option value="2" @(Model.DepartmentID == 2 ? "selected" : "")>Presentation</option>
+                            <option value="3" @(Model.DepartmentID == 3 ? "selected" : "")>Cleaning</option>
+                            <option value="4" @(Model.DepartmentID == 4 ? "selected" : "")>Reservation</option>
+                            <option value="5" @(Model.DepartmentID == 5 ? "selected" : "")>Managment</option>
+                        </select>
+                    </div>
+
+                    <!-- Day Off -->
+                    <div class="col-md-6 form-group">
+                        <label for="dayoff">Day Off</label>
+                        <select id="dayoff" name="dayoff" class="form-control" required>
+                            <option value="Monday" @(Model.dayoff == "Monday" ? "selected" : "")>Monday</option>
+                            <option value="Tuesday" @(Model.dayoff == "Tuesday" ? "selected" : "")>Tuesday</option>
+                            <option value="Wednesday" @(Model.dayoff == "Wednesday" ? "selected" : "")>Wednesday</option>
+                            <option value="Thursday" @(Model.dayoff == "Thursday" ? "selected" : "")>Thursday</option>
+                            <option value="Friday" @(Model.dayoff == "Friday" ? "selected" : "")>Friday</option>
+                            <option value="Saturday" @(Model.dayoff == "Saturday" ? "selected" : "")>Saturday</option>
+                            <option value="Sunday" @(Model.dayoff == "Sunday" ? "selected" : "")>Sunday</option>
+                        </select>
+                    </div>
+
+                    <!-- Address -->
+                    <div class="col-md-12 form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" name="address" class="form-control" value="@Model.address">
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary w-auto">Edit Staff</button>
+            </form>
+
+            @if (!string.IsNullOrEmpty(ViewBag.Error))
+            {
+                <div class="alert alert-danger mt-3">@ViewBag.Error</div>
+            }
+        </div>
+    </div>
+</body>
+</html>

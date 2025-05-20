@@ -1,0 +1,118 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+    <link rel="stylesheet" href="~/Content/login.css">
+</head>
+<body>
+    <div class="signup-container">
+        <div class="signup-form">
+            
+            <form action="/Guest/Create3" method="post">
+                @Html.AntiForgeryToken()
+
+                <div class="row">
+
+
+                    <div>
+                        <!-- Dynamic guest forms will be added here -->
+                        <div class="row guest-form">
+                            <div class="col-md-6 form-group">
+                                <label for="reservationid">Reservation Number</label>
+                                <input type="text" name="reservationid" class="form-control" value="@(Session["ReservationId"] != null ? Session["ReservationId"].ToString() : "")" required>
+                            </div>
+                            <h4>Guest 1</h4>
+                            <div class="col-md-6 form-group">
+                                <label for="guest_fname1">First Name</label>
+                                <input type="text" name="fname0" class="form-control" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="guest_lname1">Last Name</label>
+                                <input type="text" name="lname0" class="form-control" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="guest_birthdate1">Birth Date</label>
+                                <input type="date" name="birthdate0" class="form-control" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="guest_phone1">Phone</label>
+                                <input type="text" name="phone0" class="form-control" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Gender</label><br>
+                                <input type="radio" name="gender0" value="Male" >
+                                <label for="guest_male1">Male</label>
+                                <input type="radio" name="gender0" value="Female" >
+                                <label for="guest_female1">Female</label>
+                            </div>
+                        </div><div class="row guest-form">
+                            <h4>Guest 2</h4>
+                            <div class="col-md-6 form-group">
+                                <label for="guest_fname2">First Name</label>
+                                <input type="text" name="fname1" class="form-control" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="guest_lname2">Last Name</label>
+                                <input type="text" name="lname1" class="form-control" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="guest_birthdate2">Birth Date</label>
+                                <input type="date" name="birthdate1" class="form-control" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="guest_phone2">Phone</label>
+                                <input type="text" name="phone1" class="form-control" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Gender</label><br>
+                                <input type="radio" name="gender1" value="Male" >
+                                <label for="guest_male2">Male</label>
+                                <input type="radio" name="gender1" value="Female" >
+                                <label for="guest_female2">Female</label>
+                            </div>
+                        </div><div class="row guest-form">
+                            <h4>Guest 3</h4>
+                            <div class="col-md-6 form-group">
+                                <label for="guest_fname3">First Name</label>
+                                <input type="text" name="fname2" class="form-control" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="guest_lname3">Last Name</label>
+                                <input type="text" name="lname2" class="form-control" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="guest_birthdate3">Birth Date</label>
+                                <input type="date" name="birthdate2" class="form-control"required >
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="guest_phone3">Phone</label>
+                                <input type="text" name="phone2" class="form-control" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Gender</label><br>
+                                <input type="radio" name="gender2" value="Male" >
+                                <label for="guest_male3">Male</label>
+                                <input type="radio" name="gender2" value="Female" >
+                                <label for="guest_female3">Female</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary w-50">Create New Guests</button>
+            </form>
+
+            @if (!string.IsNullOrEmpty(ViewBag.Error))
+            {
+                <div class="alert alert-danger mt-3">@ViewBag.Error</div>
+            }
+        </div>
+    </div>
+
+
+    <script src="~/Scripts/custom.js"></script>
+</body>
+</html>

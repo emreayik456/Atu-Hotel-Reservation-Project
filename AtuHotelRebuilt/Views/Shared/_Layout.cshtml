@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - ASP.NET Uygulamam</title>
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="~/Content/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="~/Content/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="~/Content/images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="~/Content/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <!-- loader  -->
+    <div class="loader_bg"> <div class="loader"><img src="~/Content/images/loading.gif" alt="#" /></div> </div>
+    <!-- end loader -->
+    <!-- header -->
+    <header>
+        <!-- header inner -->
+        <div class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                        <div class="full">
+                            <div class="center-desk">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                        <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarsExample04">
+                                <ul class="navbar-nav mr-auto">
+
+
+                                    @if (Session["AccessCode"] != null)
+                                    {
+
+                                        if ((int)Session["AccessCode"] == 1) // Staff
+                                        {
+                                            <li class=" nav-item">
+                                                <div class="login_btn"><a href="/Home/Index">Home</a></div>
+                                            </li>
+                                            <li class=" nav-item">
+                                                <div class="login_btn"><a href="/Guest/Index">Guests</a></div>
+                                            </li>
+                                            <li class=" nav-item">
+                                                <div class="login_btn"><a href="/Room/Index">Rooms</a></div>
+                                            </li>
+                                            <li class=" nav-item">
+                                                <div class="login_btn"><a href="/Reservation/Index">Reservations</a></div>
+                                            </li>
+                                            <li class=" nav-item">
+                                                <div class="login_btn"><a href="/Customer/Index">Customers</a></div>
+                                            </li>
+                                            <li class=" nav-item">
+                                                <div class="login_btn"><a href="/Login/Logout">Logout</a></div>
+                                            </li>
+
+                                        }
+                                        else if ((int)Session["AccessCode"] == 2) //Admin
+                                        {
+                                            <li class=" nav-item">
+                                                <div class="login_btn"><a href="/Home/Index">Home</a></div>
+                                            </li>
+                                            <li class=" nav-item">
+                                                <div class="login_btn"><a href="/Guest/Index">Guests</a></div>
+                                            </li>
+                                            <li class=" nav-item">
+                                                <div class="login_btn"><a href="/Staff/Index">Staffs</a></div>
+                                            </li>
+                                            <li class=" nav-item">
+                                                <div class="login_btn"><a href="/Room/Index">Rooms</a></div>
+                                            </li>
+                                            <li class=" nav-item">
+                                                <div class="login_btn"><a href="/Reservation/Index">Reservations</a></div>
+                                            </li>
+                                            <li class=" nav-item">
+                                                <div class="login_btn"><a href="/Customer/Index">Customers</a></div>
+                                            </li>
+                                            <li class=" nav-item">
+                                                <div class="login_btn"><a href="/Login/Logout">Logout</a></div>
+                                            </li>
+                                        }
+                                        else if ((int)Session["AccessCode"] == 3) //Customer
+                                        {
+                                            <li class=" nav-item">
+                                                <div class="login_btn"><a href="/Home/Index">Home</a></div>
+                                            </li>
+                                            <li class=" nav-item">
+                                                <div class="login_btn"><a href="/Login/Logout">Logout</a></div>
+                                            </li>
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        <li class=" nav-item">
+                                            <div class="login_btn"><a href="/Home/Index">Home</a></div>
+                                        </li>
+                                        <li class="nav-item">
+                                            <div class="login_btn"><a href="/Login/Login">Log in</a></div>
+                                        </li>
+
+                                    }
+
+                                </ul>
+                                
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- end header inner -->
+    <!-- end header -->
+
+
+    <div class="">
+        @RenderBody()
+
+    </div>
+
+
+    <!-- Javascript files-->
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/plugin.js"></script>
+    <!-- sidebar -->
+    <script src="~/Scripts/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

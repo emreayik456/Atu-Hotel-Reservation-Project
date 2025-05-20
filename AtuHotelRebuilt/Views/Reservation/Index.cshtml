@@ -1,0 +1,52 @@
+﻿@model IEnumerable<AtuHotelRebuilt.Models.Reservation>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="~/Content/login.css">
+</head>
+<body>
+
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="9" class="text-center">Reservations</th>
+                </tr>
+                <tr>
+                    <th>Customer</th>
+                    <th>Checkin Date</th>
+                    <th>Checkout Date</th>
+                    <th>Room Number</th>
+                    <th>Cost</th>
+                    <th class="signup-link"><a href="/Reservation/Create">Create New Reservation</a></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Customer.fname) @Html.DisplayFor(modelItem => item.Customer.lname)</td>
+                        <td>@Html.DisplayFor(modelItem => item.checkin_date.Day).@Html.DisplayFor(modelItem => item.checkin_date.Month).@Html.DisplayFor(modelItem => item.checkin_date.Year)</td>
+                        <td>@Html.DisplayFor(modelItem => item.checkout_date.Day).@Html.DisplayFor(modelItem => item.checkout_date.Month).@Html.DisplayFor(modelItem => item.checkout_date.Year)</td>
+                        <td>@Html.DisplayFor(modelItem => item.RoomID)</td>
+                        <td>@Html.DisplayFor(modelItem => item.cost)</td>
+                        <td>
+                            <p class="signup-link">
+                                <a href="@Url.Action("Edit", "Reservation", new { id = item.id})">Edit</a> ||
+                                <a href="@Url.Action("Delete", "Reservation", new { id = item.id })">Delete</a>
+                            </p>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+
+        </table>
+    </div>
+
+</body>
+</html>

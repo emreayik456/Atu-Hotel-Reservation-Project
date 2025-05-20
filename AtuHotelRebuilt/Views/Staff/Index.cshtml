@@ -1,0 +1,69 @@
+﻿@model IEnumerable<AtuHotelRebuilt.Models.Staff>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="~/Content/login.css">
+</head>
+<body>
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="9" class="text-center">Staffs</th>
+                </tr>
+                <tr>
+                    <th>Staff</th>
+                    <th>Birthdate</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Depaartment</th>
+                    <th>Off Day</th>
+                    <th>T.C. Number</th>
+                    <th>E-mail</th>
+                    <th>Gender</th>
+                    <th class="signup-link"><a href="/Staff/Create">Create New</a></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.fname) @Html.DisplayFor(modelItem => item.lname)</td>
+                        <td>@Html.DisplayFor(modelItem => item.birthdate.Day).@Html.DisplayFor(modelItem => item.birthdate.Month).@Html.DisplayFor(modelItem => item.birthdate.Year) </td>
+                        <td>@Html.DisplayFor(modelItem => item.address)</td>
+                        <td>@Html.DisplayFor(modelItem => item.phone)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Department.dep_name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.dayoff)</td>
+                        <td>@Html.DisplayFor(modelItem => item.tcNumber)</td>
+                        <td>@Html.DisplayFor(modelItem => item.email)</td>
+
+                        @if (item.gender == true)
+                        {
+                            <td>Female</td>
+                        }
+                        else
+                        {
+                            <td>Male</td>
+                        }
+
+                        <td>
+                            <p class="signup-link">
+                                <a href="@Url.Action("Edit", "Staff", new { tcNumber = item.tcNumber })">Edit</a> ||
+                                <a href="@Url.Action("Delete", "Staff", new { tcNumber = item.tcNumber })">Delete</a>
+                            </p>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+
+        </table>
+    </div>
+
+</body>
+</html>

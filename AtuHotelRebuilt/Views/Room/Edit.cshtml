@@ -1,0 +1,249 @@
+﻿@model AtuHotelRebuilt.Models.Room
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    <link rel="stylesheet" href="~/Content/login.css">
+</head>
+<body>
+    <div class="signup-container">
+        <div class="signup-form">
+            <h2>New Room</h2>
+            <form action="/Room/Edit" method="post">
+                @Html.AntiForgeryToken()
+
+                <div class="row">
+
+                    <div class="col-md-6 form-group">
+                        <label>Room Number</label><br>
+                        <p>@Model.id</p>
+                    </div>
+
+                    @if (Model.floor_no == 1)
+                    {
+                        <div class="col-md-6 form-group">
+                            <label for="floor_no">Floor Number</label><br>
+                            <input type="radio" id="1" name="floor_no" value="1" checked>
+                            <label for="floor_no">1</label>
+                            <input type="radio" id="2" name="floor_no" value="2">
+                            <label for="floor_no">2</label>
+                            <input type="radio" id="3" name="floor_no" value="3">
+                            <label for="floor_no">3</label>
+                            <input type="radio" id="4" name="floor_no" value="4">
+                            <label for="floor_no">4</label>
+                            <input type="radio" id="5" name="floor_no" value="5">
+                            <label for="floor_no">5</label>
+                        </div>
+                    }
+                    else if (Model.floor_no == 2)
+                    {
+                        <div class="col-md-6 form-group">
+                            <label for="floor_no">Floor Number</label><br>
+                            <input type="radio" id="1" name="floor_no" value="1">
+                            <label for="floor_no">1</label>
+                            <input type="radio" id="2" name="floor_no" value="2" checked>
+                            <label for="floor_no">2</label>
+                            <input type="radio" id="3" name="floor_no" value="3">
+                            <label for="floor_no">3</label>
+                            <input type="radio" id="4" name="floor_no" value="4">
+                            <label for="floor_no">4</label>
+                            <input type="radio" id="5" name="floor_no" value="5">
+                            <label for="floor_no">5</label>
+                        </div>
+                    }
+                    else if (Model.floor_no == 3)
+                    {
+                        <div class="col-md-6 form-group">
+                            <label for="floor_no">Floor Number</label><br>
+                            <input type="radio" id="1" name="floor_no" value="1">
+                            <label for="floor_no">1</label>
+                            <input type="radio" id="2" name="floor_no" value="2">
+                            <label for="floor_no">2</label>
+                            <input type="radio" id="3" name="floor_no" value="3" checked>
+                            <label for="floor_no">3</label>
+                            <input type="radio" id="4" name="floor_no" value="4">
+                            <label for="floor_no">4</label>
+                            <input type="radio" id="5" name="floor_no" value="5">
+                            <label for="floor_no">5</label>
+                        </div>
+                    }
+                    else if (Model.floor_no == 4)
+                    {
+                        <div class="col-md-6 form-group">
+                            <label for="floor_no">Floor Number</label><br>
+                            <input type="radio" id="1" name="floor_no" value="1">
+                            <label for="floor_no">1</label>
+                            <input type="radio" id="2" name="floor_no" value="2">
+                            <label for="floor_no">2</label>
+                            <input type="radio" id="3" name="floor_no" value="3">
+                            <label for="floor_no">3</label>
+                            <input type="radio" id="4" name="floor_no" value="4" checked>
+                            <label for="floor_no">4</label>
+                            <input type="radio" id="5" name="floor_no" value="5">
+                            <label for="floor_no">5</label>
+                        </div>
+                    }
+                    else if (Model.floor_no == 5)
+                    {
+                        <div class="col-md-6 form-group">
+                            <label for="floor_no">Floor Number</label><br>
+                            <input type="radio" id="1" name="floor_no" value="1">
+                            <label for="floor_no">1</label>
+                            <input type="radio" id="2" name="floor_no" value="2">
+                            <label for="floor_no">2</label>
+                            <input type="radio" id="3" name="floor_no" value="3">
+                            <label for="floor_no">3</label>
+                            <input type="radio" id="4" name="floor_no" value="4">
+                            <label for="floor_no">4</label>
+                            <input type="radio" id="5" name="floor_no" value="5" checked>
+                            <label for="floor_no">5</label>
+                        </div>
+                    }
+
+                    <div class="col-md-6 form-group">
+                        <label>Room Availability</label><br>
+                        <p>@Model.AvailabilityID</p>
+                    </div>
+
+                    <!-- Sağ Kolon -->
+                    @if (Model.AreaID == 1)
+                    {
+                        <div class="col-md-6 form-group">
+                            <label>Room Size</label><br>
+                            <input type="radio" id="1" name="AreaID" value="1" checked>
+                            <label for="AreaID">1</label>
+                            <input type="radio" id="2" name="AreaID" value="2">
+                            <label for="AreaID">2</label>
+                            <input type="radio" id="3" name="AreaID" value="3">
+                            <label for="AreaID">3</label>
+                            <input type="radio" id="4" name="AreaID" value="4">
+                            <label for="AreaID">4</label>
+                        </div>
+                    }
+                    else if (Model.AreaID == 2)
+                    {
+                        <div class="col-md-6 form-group">
+                            <label>Room Size</label><br>
+                            <input type="radio" id="1" name="AreaID" value="1">
+                            <label for="AreaID">1</label>
+                            <input type="radio" id="2" name="AreaID" value="2" checked>
+                            <label for="AreaID">2</label>
+                            <input type="radio" id="3" name="AreaID" value="3">
+                            <label for="AreaID">3</label>
+                            <input type="radio" id="4" name="AreaID" value="4">
+                            <label for="AreaID">4</label>
+                        </div>
+                    }
+                    else if (Model.AreaID == 3)
+                    {
+                        <div class="col-md-6 form-group">
+                            <label>Room Size</label><br>
+                            <input type="radio" id="1" name="AreaID" value="1">
+                            <label for="AreaID">1</label>
+                            <input type="radio" id="2" name="AreaID" value="2">
+                            <label for="AreaID">2</label>
+                            <input type="radio" id="3" name="AreaID" value="3" checked>
+                            <label for="AreaID">3</label>
+                            <input type="radio" id="4" name="AreaID" value="4">
+                            <label for="AreaID">4</label>
+                        </div>
+                    }
+                    else if (Model.AreaID == 4)
+                    {
+                        <div class="col-md-6 form-group">
+                            <label>Room Size</label><br>
+                            <input type="radio" id="1" name="AreaID" value="1">
+                            <label for="AreaID">1</label>
+                            <input type="radio" id="2" name="AreaID" value="2">
+                            <label for="AreaID">2</label>
+                            <input type="radio" id="3" name="AreaID" value="3">
+                            <label for="AreaID">3</label>
+                            <input type="radio" id="4" name="AreaID" value="4" checked>
+                            <label for="AreaID">4</label>
+                        </div>
+                    }
+
+
+                    <!-- Tek Kolon (İki sütun boyunca yayılır) -->
+                    @if (Model.RoomTypeID == 1)
+                    {
+                        <div class="col-md-6 form-group">
+                            <label>Room Type</label><br>
+                            <input type="radio" id="1" name="RoomTypeID" value="1 " checked>
+                            <label for="RoomTypeID">Economic</label>
+                            <input type="radio" id="2" name="RoomTypeID" value="2">
+                            <label for="RoomTypeID">Cummon</label><br />
+                            <input type="radio" id="3" name="RoomTypeID" value="3">
+                            <label for="RoomTypeID">Premium</label>
+                            <input type="radio" id="4" name="RoomTypeID" value="4">
+                            <label for="RoomTypeID">King Suit</label>
+                        </div>
+                    }
+                    else if (Model.RoomTypeID == 2)
+                    {
+                        <div class="col-md-6 form-group">
+                            <label>Room Type</label><br>
+                            <input type="radio" id="1" name="RoomTypeID" value="1">
+                            <label for="RoomTypeID">Economic</label>
+                            <input type="radio" id="2" name="RoomTypeID" value="2" checked>
+                            <label for="RoomTypeID">Cummon</label><br />
+                            <input type="radio" id="3" name="RoomTypeID" value="3">
+                            <label for="RoomTypeID">Premium</label>
+                            <input type="radio" id="4" name="RoomTypeID" value="4">
+                            <label for="RoomTypeID">King Suit</label>
+                        </div>
+                    }
+                    else if (Model.RoomTypeID == 3)
+                    {
+                        <div class="col-md-6 form-group">
+                            <label>Room Type</label><br>
+                            <input type="radio" id="1" name="RoomTypeID" value="1">
+                            <label for="RoomTypeID">Economic</label>
+                            <input type="radio" id="2" name="RoomTypeID" value="2">
+                            <label for="RoomTypeID">Cummon</label><br />
+                            <input type="radio" id="3" name="RoomTypeID" value="3" checked>
+                            <label for="RoomTypeID">Premium</label>
+                            <input type="radio" id="4" name="RoomTypeID" value="4">
+                            <label for="RoomTypeID">King Suit</label>
+                        </div>
+                    }
+                    else if (Model.RoomTypeID == 4)
+                    {
+                        <div class="col-md-6 form-group">
+                            <label>Room Type</label><br>
+                            <input type="radio" id="1" name="RoomTypeID" value="1">
+                            <label for="RoomTypeID">Economic</label>
+                            <input type="radio" id="2" name="RoomTypeID" value="2">
+                            <label for="RoomTypeID">Cummon</label><br />
+                            <input type="radio" id="3" name="RoomTypeID" value="3">
+                            <label for="RoomTypeID">Premium</label>
+                            <input type="radio" id="4" name="RoomTypeID" value="4" checked>
+                            <label for="RoomTypeID">King Suit</label>
+                        </div>
+                    }
+
+                </div>
+                <div class="col-md-6 form-group" style="display: none;">
+                    <label for="id"></label>
+                    <input type="text" id="id" name="id" class="form-control" value="@Model.id">
+                </div>
+
+                <button type="submit" class="btn btn-primary w-auto">Edit Room</button>
+            </form>
+
+            @if (!string.IsNullOrEmpty(ViewBag.Error))
+            {
+                <div class="alert alert-danger mt-3">@ViewBag.Error</div>
+            }
+        </div>
+    </div>
+
+
+    <script src="~/Scripts/custom.js"></script>
+</body>
+</html>

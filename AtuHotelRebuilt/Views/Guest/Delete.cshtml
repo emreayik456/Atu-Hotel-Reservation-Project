@@ -1,0 +1,69 @@
+﻿@model AtuHotelRebuilt.Models.Guest
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+    <link rel="stylesheet" href="~/Content/login.css">
+</head>
+<body>
+    <div class="signup-container">
+        <div class="signup-form">
+            <div class="row">
+
+
+                <!-- Sağ Kolon -->
+                <div class="col-md-6 form-group">
+                    <label for="fname">First Name</label>
+                    <p>@Model.fname</p>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="lname">Last Name</label>
+                    <p>@Model.lname</p>
+                </div>
+
+                <!-- Tek Kolon (İki sütun boyunca yayılır) -->
+                <div class="col-md-6 form-group">
+                    <label for="birthdate">Birth Date</label>
+                    <p>@Model.birthdate.ToString("dd.MM.yyyy")</p>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="phone">Phone</label>
+                    <p>@Model.phone</p>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    @if (Model.gender == false)
+                    {
+                        <label>Gender</label><br>
+                        <p>Male</p>
+                    }
+                    else
+                    {
+                        <label>Gender</label><br>
+                        <p>Female</p>
+                    }
+
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="ReservationId">Reservation Number</label>
+                    <p>@Model.ReservationID</p>
+                </div>
+
+
+            </div>
+            <div class="form-group">
+                <form action="/Guest/Delete" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="number" id="id" name="id" class="form-control" value="@Model.id" required style="display: none;" />
+                    <input type="text" id="fname" name="fname" class="form-control" value="@Model.fname" required style="display: none;" />
+                    <button type="submit" class="btn btn-primary">Delete Guest</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

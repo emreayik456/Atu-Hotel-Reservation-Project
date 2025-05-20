@@ -1,0 +1,229 @@
+﻿@model AtuHotelRebuilt.Models.RoomReservationViewModel
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="~/Content/login.css">
+</head>
+<body>
+    <div class="login_btn">
+        <a href="/Room/Create">Create Room</a> <label class="toggle-switch"><input type="checkbox" id="EconomicRoomsCheckbox" checked /><span class="slider"></span></label><label>Economics</label>
+        <label class="toggle-switch"><input type="checkbox" id="CummonRoomsCheckbox" checked /><span class="slider"></span></label><label>Cummons</label>
+        <label class="toggle-switch"><input type="checkbox" id="PremiumRoomsCheckbox" checked /><span class="slider"></span></label><label>Premiums</label>
+        <label class="toggle-switch"><input type="checkbox" id="KingRoomsCheckbox" checked /><span class="slider"></span></label><label>King Suits</label>
+    </div>
+    
+    <h3 id="EconomicHeader">Economic Rooms</h3>
+    <div id="EconomicRooms" class="table-container room-grid">
+
+        @foreach (var item in Model.Rooms)
+        {
+            if (item.RoomTypeID == 1)
+            {
+
+                <div class="room @item.RoomAvailability.availability @*@item.RoomType.RoomTypeName*@">
+                    <p>Room Number: @item.id</p>
+                    <p>Floor Number: @item.floor_no</p>
+                    <p>Daily Cost: @item.RoomArea.cost</p>
+                    <p>Room Size: @item.RoomArea.roomsize</p>
+                    <p>Room Type: @item.RoomType.RoomTypeName</p>
+                    @if (item.AvailabilityID != 2)
+                    {
+                        foreach (var reservation in Model.Reservations)
+                        {
+                            if (reservation.RoomID == item.id)
+                            {
+                                <p>Checkin date: @reservation.checkin_date.ToString("dd.MM.yyyy")</p>
+                                <p>Checkout date: @reservation.checkout_date.ToString("dd.MM.yyyy")</p>
+                            }
+                        }
+                    }
+                    else
+                    {
+                        <p class="signup-link">
+                            <a href="@Url.Action("Edit", "Room", new { id = item.id})">Edit</a> ||
+                            <a href="@Url.Action("Delete", "Room", new { id = item.id })">Delete</a>
+                        </p>
+                    }
+
+                </div>
+
+            }
+
+        }
+    </div>
+    <h3 id="CummonHeader">Cummon Rooms</h3>
+    <div id="CummonRooms" class="table-container room-grid">
+
+        @foreach (var item in Model.Rooms)
+        {
+            if (item.RoomTypeID == 2)
+            {
+
+                <div class="room @item.RoomAvailability.availability @*@item.RoomType.RoomTypeName*@">
+                    <p>Room Number: @item.id</p>
+                    <p>Floor Number: @item.floor_no</p>
+                    <p>Daily Cost: @item.RoomArea.cost</p>
+                    <p>Room Size: @item.RoomArea.roomsize</p>
+                    <p>Room Type: @item.RoomType.RoomTypeName</p>
+                    @if (item.AvailabilityID != 2)
+                    {
+                        foreach (var reservation in Model.Reservations)
+                        {
+                            if (reservation.RoomID == item.id)
+                            {
+                                <p>Checkin date: @reservation.checkin_date.ToString("dd.MM.yyyy")</p>
+                                <p>Checkout date: @reservation.checkout_date.ToString("dd.MM.yyyy")</p>
+                            }
+                        }
+                    }
+                    else
+                    {
+                        <p class="signup-link">
+                            <a href="@Url.Action("Edit", "Room", new { id = item.id})">Edit</a> ||
+                            <a href="@Url.Action("Delete", "Room", new { id = item.id })">Delete</a>
+                        </p>
+                    }
+
+                </div>
+
+            }
+
+        }
+    </div>
+    <h3 id="PremiumHeader">Premium Rooms</h3>
+    <div id="PremiumRooms" class="table-container room-grid">
+
+        @foreach (var item in Model.Rooms)
+        {
+            if (item.RoomTypeID == 3)
+            {
+
+                <div class="room @item.RoomAvailability.availability @*@item.RoomType.RoomTypeName*@">
+                    <p>Room Number: @item.id</p>
+                    <p>Floor Number: @item.floor_no</p>
+                    <p>Daily Cost: @item.RoomArea.cost</p>
+                    <p>Room Size: @item.RoomArea.roomsize</p>
+                    <p>Room Type: @item.RoomType.RoomTypeName</p>
+                    @if (item.AvailabilityID != 2)
+                    {
+                        foreach (var reservation in Model.Reservations)
+                        {
+                            if (reservation.RoomID == item.id)
+                            {
+                                <p>Checkin date: @reservation.checkin_date.ToString("dd.MM.yyyy")</p>
+                                <p>Checkout date: @reservation.checkout_date.ToString("dd.MM.yyyy")</p>
+                            }
+                        }
+                    }
+                    else
+                    {
+                        <p class="signup-link">
+                            <a href="@Url.Action("Edit", "Room", new { id = item.id})">Edit</a> ||
+                            <a href="@Url.Action("Delete", "Room", new { id = item.id })">Delete</a>
+                        </p>
+                    }
+
+                </div>
+
+            }
+
+        }
+    </div>
+    <h3 id="KingHeader">King Suits</h3>
+    <div id="KingRooms" class="table-container room-grid">
+
+        @foreach (var item in Model.Rooms)
+        {
+            if (item.RoomTypeID == 4)
+            {
+
+                <div class="room @item.RoomAvailability.availability @*@item.RoomType.RoomTypeName*@">
+                    <p>Room Number: @item.id</p>
+                    <p>Floor Number: @item.floor_no</p>
+                    <p>Daily Cost: @item.RoomArea.cost</p>
+                    <p>Room Size: @item.RoomArea.roomsize</p>
+                    <p>Room Type: @item.RoomType.RoomTypeName</p>
+                    @if (item.AvailabilityID != 2)
+                    {
+                        foreach (var reservation in Model.Reservations)
+                        {
+                            if (reservation.RoomID == item.id)
+                            {
+                                <p>Checkin date: @reservation.checkin_date.ToString("dd.MM.yyyy")</p>
+                                <p>Checkout date: @reservation.checkout_date.ToString("dd.MM.yyyy")</p>
+                            }
+                        }
+                    }
+                    else
+                    {
+                        <p class="signup-link">
+                            <a href="@Url.Action("Edit", "Room", new { id = item.id})">Edit</a> ||
+                            <a href="@Url.Action("Delete", "Room", new { id = item.id })">Delete</a>
+                        </p>
+                    }
+
+                </div>
+
+            }
+
+        }
+    </div>
+
+
+    <script>
+        document.getElementById("KingRoomsCheckbox").addEventListener("change", function () {
+            var kingRoomsDiv = document.getElementById("KingRooms");
+            var kingHeader = document.getElementById("KingHeader");
+            if (this.checked) {
+                kingRoomsDiv.style.display = "grid";
+                kingHeader.style.display = "block";
+            } else {
+                kingRoomsDiv.style.display = "none";
+                kingHeader.style.display = "none";
+            }
+        });
+
+        document.getElementById("PremiumRoomsCheckbox").addEventListener("change", function () {
+            var kingRoomsDiv = document.getElementById("PremiumRooms");
+            var premiumHeader = document.getElementById("PremiumHeader");
+
+            if (this.checked) {
+                kingRoomsDiv.style.display = "grid";
+                premiumHeader.style.display = "block";
+            } else {
+                kingRoomsDiv.style.display = "none";
+                premiumHeader.style.display = "none";
+            }
+        });
+
+        document.getElementById("CummonRoomsCheckbox").addEventListener("change", function () {
+            var kingRoomsDiv = document.getElementById("CummonRooms");
+            var cummonHeader = document.getElementById("CummonHeader");
+            if (this.checked) {
+                kingRoomsDiv.style.display = "grid";
+                cummonHeader.style.display = "block";
+            } else {
+                kingRoomsDiv.style.display = "none";
+                cummonHeader.style.display = "none";
+            }
+        });
+
+        document.getElementById("EconomicRoomsCheckbox").addEventListener("change", function () {
+            var kingRoomsDiv = document.getElementById("EconomicRooms");
+            var economicHeader = document.getElementById("EconomicHeader");
+            if (this.checked) {
+                kingRoomsDiv.style.display = "grid";
+                economicHeader.style.display = "block";
+            } else {
+                kingRoomsDiv.style.display = "none";
+                economicHeader.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+﻿@model IEnumerable<AtuHotelRebuilt.Models.Customer>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="~/Content/login.css">
+</head>
+<body>
+
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="9" class="text-center">Customers</th>
+                </tr>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Birthdate</th>
+                    <th>Phone</th>
+                    <th>T.C. Number</th>
+                    <th>E-mail</th>
+                    <th>Active</th>
+                    <th>Gender</th>
+                    <th class="signup-link"><a href="/Customer/Create">Create New</a></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.fname)</td>
+                        <td>@Html.DisplayFor(modelItem => item.lname)</td>
+                        <td>@Html.DisplayFor(modelItem => item.birthdate.Day).@Html.DisplayFor(modelItem => item.birthdate.Month).@Html.DisplayFor(modelItem => item.birthdate.Year) </td>
+                        <td>@Html.DisplayFor(modelItem => item.phone)</td>
+
+                        @if ((int)Session["AccessCode"] == 1)
+                        {
+                            <td>
+                                @(item.tcNumber != null && item.tcNumber.Length > 6
+                                ? item.tcNumber.Substring(0, 3) + new string('*', item.tcNumber.Length - 6) + item.tcNumber.Substring(item.tcNumber.Length - 3)
+                                : item.tcNumber)
+                            </td>
+                        }
+                        else if ((int)Session["AccessCode"] == 2)
+                        {
+                            <td>@Html.DisplayFor(modelItem => item.tcNumber)</td>
+                        }
+                        else
+                        {
+                            <td>TC No.</td>
+                        }
+                        <td>@Html.DisplayFor(modelItem => item.email)</td>
+
+                        @if (item.is_active == true)
+                        {
+                            <td>Active</td>
+                        }
+                        else
+                        {
+                            <td>Passive</td>
+                        }
+
+                        @if (item.gender == true)
+                        {
+                            <td>Female</td>
+                        }
+                        else
+                        {
+                            <td>Male</td>
+                        }
+
+                        <td>
+                            <p class="signup-link">
+                                <a href="@Url.Action("Edit", "Customer", new { tcNumber = item.tcNumber })">Edit</a> ||
+                                <a href="@Url.Action("Delete", "Customer", new { tcNumber = item.tcNumber })">Delete</a>
+                            </p>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+
+        </table>
+    </div>
+
+</body>
+</html>

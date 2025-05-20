@@ -1,0 +1,170 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+
+
+}
+
+<main>
+    <!-- banner -->
+    <section class="banner_main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-bg">
+                        <div class="padding_lert">
+                            <h1>WELCOME TO ATU HOTEL</h1>
+                            <span>Software Project by Emre Ayık | Sena Yalçın</span>
+                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
+                            @if (Session["AccessCode"] == null)
+                            {
+                                <a href="/Reservation/Create">Create Reservation</a>
+                            }
+                            else
+                            {
+                                if ((int)Session["AccessCode"] == 3)
+                                {
+                                    <a href="/Home/Reservation">View Reservation</a>
+                                }
+                                else
+                                {
+                                    <a href="/Reservation/Create">Create Reservation</a>
+                                }
+                            }
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end banner -->
+    <!-- choose  section -->
+    <div class="choose">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="choose_box">
+                        <div class="titlepage">
+                            <h2><span class="text_norlam">Choose The Perfect</span> <br>Accommodation</h2>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit </p>
+                        <a class="read_more" href="#">See More</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="img_box">
+                                <figure><img src="~/Content/images/img1.jpg" alt="#" /></figure>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="img_box">
+                                <figure><img src="~/Content/images/img2.jpg" alt="#" /></figure>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="img_box">
+                                <figure><img src="~/Content/images/img3.jpg" alt="#" /></figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end choose  section -->
+    <!-- our  section -->
+    <div class="our">
+        <div class="container">
+            <div class="row d_flex">
+                <div class="col-md-6">
+                    <div class="img_box">
+                        <figure><img src="~/Content/images/img4.jpg" alt="#" /></figure>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="our_box">
+                        <div class="titlepage">
+                            <h2><span class="text_norlam">Our Best </span> <br>Breakfast</h2>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit </p>
+                        <a class="read_more" href="#">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end our  section -->
+    <!-- about -->
+    <div id="about" class="about">
+        <div class="container-fluid">
+            <div class="row d_flex">
+                <div class="col-md-6">
+                    <div class="about_text">
+                        <div class="titlepage">
+                            <h2>About Our Hotel</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="about_img">
+                        <figure><img src="~/Content/images/about_img.jpg" alt="#" /></figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end about -->
+    <!--  footer -->
+    <footer id="contact">
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="titlepage">
+                            <h2>Contact Us</h2>
+                        </div>
+                        <div class="cont">
+                            <h3>Free download Landing page Felicity Hotel </h3>
+                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <form id="request" class="main_form">
+                            <div class="row">
+                                <div class="col-md-12 ">
+                                    <input class="contactus" placeholder="Full Name" type="type" name="Full Name">
+                                </div>
+                                <div class="col-md-12">
+                                    <input class="contactus" placeholder="Email" type="type" name="Email">
+                                </div>
+                                <div class="col-md-12">
+                                    <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number">
+                                </div>
+                                <div class="col-md-12">
+                                    <textarea class="textarea" placeholder="Message" type="type" Message="Name">Message </textarea>
+                                </div>
+                                <div class="col-sm-12">
+                                    <button class="send_btn">Send</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>Copyright @DateTime.Now.Year All Right Reserved By Emre Ayık | Sena Yalçın</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- end footer -->
+</main>

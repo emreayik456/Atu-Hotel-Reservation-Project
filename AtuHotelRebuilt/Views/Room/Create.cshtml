@@ -1,0 +1,76 @@
+﻿@model AtuHotelRebuilt.Models.Room
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+    <link rel="stylesheet" href="~/Content/login.css">
+</head>
+<body>
+    <div class="signup-container">
+        <div class="signup-form">
+            <h2>New Room</h2>
+            <form action="/Room/Create" method="post">
+                @Html.AntiForgeryToken()
+
+                <div class="row">
+
+
+                    <!-- Sağ Kolon -->
+                    <div class="col-md-6 form-group">
+                        <label for="floor_no">Floor Number</label><br>
+                        <input type="radio" id="1" name="floor_no" value="1">
+                        <label for="floor_no">1</label>
+                        <input type="radio" id="2" name="floor_no" value="2">
+                        <label for="floor_no">2</label>
+                        <input type="radio" id="3" name="floor_no" value="3">
+                        <label for="floor_no">3</label>
+                        <input type="radio" id="4" name="floor_no" value="4">
+                        <label for="floor_no">4</label>
+                        <input type="radio" id="5" name="floor_no" value="5">
+                        <label for="floor_no">5</label>
+                    </div>
+                    <div class="form-group">
+                        <label>Room Size</label><br>
+                        <input type="radio" id="1" name="AreaID" value="1">
+                        <label for="AreaID">1</label>
+                        <input type="radio" id="2" name="AreaID" value="2">
+                        <label for="AreaID">2</label>
+                        <input type="radio" id="3" name="AreaID" value="3">
+                        <label for="AreaID">3</label>
+                        <input type="radio" id="4" name="AreaID" value="4">
+                        <label for="AreaID">4</label>
+                    </div>
+
+                    <!-- Tek Kolon (İki sütun boyunca yayılır) -->
+                    
+                    <div class="form-group">
+                        <label>Room Type</label><br>
+                        <input type="radio" id="1" name="RoomTypeID" value="1">
+                        <label for="RoomTypeID">Economic</label>
+                        <input type="radio" id="2" name="RoomTypeID" value="2">
+                        <label for="RoomTypeID">Cummon</label>
+                        <input type="radio" id="3" name="RoomTypeID" value="3">
+                        <label for="RoomTypeID">Premium</label>
+                        <input type="radio" id="4" name="RoomTypeID" value="4">
+                        <label for="RoomTypeID">King Suit</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Create New Room</button>
+            </form>
+
+            @if (!string.IsNullOrEmpty(ViewBag.Error))
+            {
+                <div class="alert alert-danger mt-3">@ViewBag.Error</div>
+            }
+        </div>
+    </div>
+
+
+    <script src="~/Scripts/custom.js"></script>
+</body>
+</html>

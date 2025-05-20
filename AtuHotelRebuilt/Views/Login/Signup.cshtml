@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="~/Content/login.css">
+</head>
+<body>
+    <div class="signup-container">
+        <div class="signup-form">
+            <h2>Sign Up</h2>
+            <form action="/Login/Signup" method="post">
+                @Html.AntiForgeryToken()
+
+                <div class="row">
+                    <!-- Sol Kolon -->
+                    <div class="col-md-6 form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" class="form-control" required>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" required>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="showPassword" onclick="togglePassword()">
+                            <span class="slider"></span>
+                        </label>
+                        <label for="showPassword" class="show-password-text">Show Password</label>
+                    </div>
+
+                    <!-- Sağ Kolon -->
+                    <div class="col-md-6 form-group">
+                        <label for="fname">First Name</label>
+                        <input type="text" id="fname" name="fname" class="form-control" required>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label for="lname">Last Name</label>
+                        <input type="text" id="lname" name="lname" class="form-control" required>
+                    </div>
+
+                    <!-- Tek Kolon (İki sütun boyunca yayılır) -->
+                    <div class="col-md-6 form-group">
+                        <label for="birthdate">Birth Date</label>
+                        <input type="date" id="birthdate" name="birthdate" class="form-control" required>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" id="phone" name="phone" class="form-control" required>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label for="tcNumber">T.C. Number</label>
+                        <input type="text" id="tcNumber" name="tcNumber" class="form-control" required>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label for="email">Email</label>
+                        <input type="text" id="email" name="email" class="form-control" required>
+                    </div>
+
+                    <div class="col-md-12 form-group">
+                        <label>Gender</label><br>
+                        <input type="radio" id="male" name="gender" value="Male">
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="Female">
+                        <label for="female">Female</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+            </form>
+
+            @if (!string.IsNullOrEmpty(ViewBag.Error))
+            {
+                <div class="alert alert-danger mt-3">@ViewBag.Error</div>
+            }
+        </div>
+    </div>
+
+
+    <script src="~/Scripts/custom.js"></script>
+</body>
+</html>

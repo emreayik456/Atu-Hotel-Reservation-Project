@@ -1,0 +1,63 @@
+﻿@model IEnumerable<AtuHotelRebuilt.Models.Guest>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="~/Content/login.css">
+</head>
+<body>
+
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="9" class="text-center">Guests</th>
+                </tr>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Birthdate</th>
+                    <th>Phone</th>
+                    <th>Gender</th>
+                    <th>Reservation Number</th>
+                    <th class="signup-link"><a href="/Guest/Create1">Create New</a></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.fname)</td>
+                        <td>@Html.DisplayFor(modelItem => item.lname)</td>
+                        <td>@Html.DisplayFor(modelItem => item.birthdate.Day).@Html.DisplayFor(modelItem => item.birthdate.Month).@Html.DisplayFor(modelItem => item.birthdate.Year) </td>
+                        <td>@Html.DisplayFor(modelItem => item.phone)</td>
+
+                        @if (item.gender == true)
+                        {
+                            <td>Female</td>
+                        }
+                        else
+                        {
+                            <td>Male</td>
+                        }
+                        <td>@item.ReservationID</td>
+                        <td>
+                            <p class="signup-link">
+                                <a href="@Url.Action("Edit", "Guest", new { id = item.id })">Edit</a> ||
+                                <a href="@Url.Action("Delete", "Guest", new { id = item.id })">Delete</a>
+                            </p>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+
+        </table>
+    </div>
+
+</body>
+</html>

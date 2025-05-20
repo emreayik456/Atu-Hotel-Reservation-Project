@@ -1,0 +1,80 @@
+﻿@model AtuHotelRebuilt.Models.Guest
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    <link rel="stylesheet" href="~/Content/login.css">
+</head>
+<body>
+    <div class="signup-container">
+        <div class="signup-form">
+            <h2>Edit Guest</h2>
+            <form action="/Guest/Edit" method="post">
+                @Html.AntiForgeryToken()
+
+                <div class="row">
+
+
+                    
+                        <!-- Dynamic guest forms will be added here -->
+
+                        <h4>Guest</h4>
+                        <div class="col-md-6 form-group">
+                            <label for="guest_fname1">First Name</label>
+                            <input type="text" name="fname" class="form-control" value="@Model.fname"required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="guest_lname1">Last Name</label>
+                            <input type="text" name="lname" class="form-control" value="@Model.lname"required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="guest_birthdate1">Birth Date</label>
+                            <input type="date" name="birthdate" class="form-control" value="@Model.birthdate.ToString("yyyy-MM-dd")"required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="guest_phone1">Phone</label>
+                            <input type="text" name="phone" class="form-control" value="@Model.phone"required>
+                        </div>
+                        <div class="col-md-6 form-group"required>
+                            @if (Model.gender == false)
+                            {
+                                <label>Gender</label><br>
+                                <input type="radio" name="gender" value="Male" checked>
+                                <label for="guest_male1">Male</label>
+                                <input type="radio" name="gender" value="Female">
+                                <label for="guest_female1">Female</label>
+                            }
+                            else
+                            {
+                                <label>Gender</label><br>
+                                <input type="radio" name="gender" value="Male">
+                                <label for="guest_male1">Male</label>
+                                <input type="radio" name="gender" value="Female" checked>
+                                <label for="guest_female1">Female</label>
+                            }
+
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group" style="display: none;">
+                        <label for="guest_phone1">id</label>
+                        <input type="text" name="id" class="form-control" value="@Model.id"required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-auto">Edit Guest</button>
+                
+        
+        </form>
+
+        @if (!string.IsNullOrEmpty(ViewBag.Error))
+        {
+            <div class="alert alert-danger mt-3">@ViewBag.Error</div>
+        }
+    </div>
+    </div>
+
+    
+    <script src="~/Scripts/custom.js"></script>
+</body>
+</html>

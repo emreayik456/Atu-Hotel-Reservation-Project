@@ -1,0 +1,116 @@
+﻿@model AtuHotelRebuilt.Models.Reservation
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    <link rel="stylesheet" href="~/Content/login.css">
+</head>
+<body>
+    <div class="signup-container">
+        <div class="signup-form">
+            <h2>Edit Reservation</h2>
+            <form action="/Reservation/Edit" method="post">
+                @Html.AntiForgeryToken()
+
+                <div class="row">
+
+
+                    <!-- Sağ Kolon -->
+                    <div class="col-md-6 form-group">
+                        <label for="checkin_date">Checkin Date</label>
+                        <input type="date" id="checkin_date" name="checkin_date" class="form-control" value="@Model.checkin_date.ToString("yyyy-MM-dd")" required>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label for="checkout_date">Checkout Date</label>
+                        <input type="date" id="checkout_date" name="checkout_date" class="form-control" value="@Model.checkout_date.ToString("yyyy-MM-dd")" required>
+                    </div>
+
+                    <!-- Tek Kolon (İki sütun boyunca yayılır) -->
+                    <div class="col-md-6 form-group">
+                        <label for="CustomerTC">Customer</label>
+                        <input type="text" id="CustomerTC" name="CustomerTC" class="form-control" value="@Model.CustomerTC" required>
+                    </div>
+
+                    <div class="col-md-6 form-group">
+                        <label for="RoomID">Room Number</label>
+                        <p>@Model.RoomID</p>
+                    </div>
+                </div>
+                @if (Model.Room.RoomTypeID == 1)
+                {
+                    <div class="col-md-6 form-group">
+                        <label for="RoomTypeID">Room Type</label><br />
+                        <input type="radio" id="Economic" name="roomtype" value="Economic" checked>
+                        <label for="roomtype">Economic</label>
+                        <input type="radio" id="Cummon" name="roomtype" value="Cummon">
+                        <label for="roomtype">Cummon</label><br />
+                        <input type="radio" id="Premium" name="roomtype" value="Premium">
+                        <label for="roomtype">Premium</label>
+                        <input type="radio" id="King Suit" name="roomtype" value="King Suit">
+                        <label for="roomtype">King Suit</label>
+                    </div>
+                }
+                @if (Model.Room.RoomTypeID == 2)
+                {
+                    <div class="col-md-6 form-group">
+                        <label for="RoomTypeID">Room Type</label><br />
+                        <input type="radio" id="Economic" name="roomtype" value="Economic">
+                        <label for="roomtype">Economic</label>
+                        <input type="radio" id="Cummon" name="roomtype" value="Cummon" checked>
+                        <label for="roomtype">Cummon</label><br />
+                        <input type="radio" id="Premium" name="roomtype" value="Premium">
+                        <label for="roomtype">Premium</label>
+                        <input type="radio" id="King Suit" name="roomtype" value="King Suit">
+                        <label for="roomtype">King Suit</label>
+                    </div>
+                }
+                @if (Model.Room.RoomTypeID == 3)
+                {
+                    <div class="col-md-6 form-group">
+                        <label for="RoomTypeID">Room Type</label><br />
+                        <input type="radio" id="Economic" name="roomtype" value="Economic">
+                        <label for="roomtype">Economic</label>
+                        <input type="radio" id="Cummon" name="roomtype" value="Cummon">
+                        <label for="roomtype">Cummon</label><br />
+                        <input type="radio" id="Premium" name="roomtype" value="Premium" checked>
+                        <label for="roomtype">Premium</label>
+                        <input type="radio" id="King Suit" name="roomtype" value="King Suit">
+                        <label for="roomtype">King Suit</label>
+                    </div>
+                }
+                @if (Model.Room.RoomTypeID == 4)
+                {
+                    <div class="col-md-6 form-group">
+                        <label for="RoomTypeID">Room Type</label><br />
+                        <input type="radio" id="Economic" name="roomtype" value="Economic">
+                        <label for="roomtype">Economic</label>
+                        <input type="radio" id="Cummon" name="roomtype" value="Cummon">
+                        <label for="roomtype">Cummon</label><br />
+                        <input type="radio" id="Premium" name="roomtype" value="Premium">
+                        <label for="roomtype">Premium</label>
+                        <input type="radio" id="King Suit" name="roomtype" value="King Suit" checked>
+                        <label for="roomtype">King Suit</label>
+                    </div>
+                }
+
+                <div class="col-md-6 form-group" style="display: none;">
+                    <label for="id">ID</label>
+                    <input type="text" id="id" name="id" class="form-control" value="@Model.id">
+                </div>
+                <button type="submit" class="btn btn-primary">Edit Reservation</button>
+            </form>
+
+            @if (!string.IsNullOrEmpty(ViewBag.Error))
+            {
+                <div class="alert alert-danger mt-3">@ViewBag.Error</div>
+            }
+        </div>
+    </div>
+    
+</body>
+</html>

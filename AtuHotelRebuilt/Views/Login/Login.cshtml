@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Log in</title>
+    <link rel="stylesheet" href="~/Content/login.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <h2>Login</h2>
+            <form action="/Login/Login" method="post">
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="showPassword" onclick="togglePassword()">
+                        <span class="slider"></span>
+                    </label>
+                    <label for="showPassword" class="show-password-text">Show Password</label>
+                </div>
+
+                <!-- Forgot Password link below the password field -->
+                <p class="forgot-password-link">
+                    <a href="/Login/ForgotPassword">Forgot Password?</a>
+                </p>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            @if (!string.IsNullOrEmpty(ViewBag.Error))
+            {
+            <div class="alert alert-danger">@ViewBag.Error</div>
+            }
+
+            <!-- Sign Up link below the form -->
+            <p class="signup-link">
+                Don't have an account? <a href="/Login/SignUp">Sign Up</a>
+            </p>
+        </div>
+    </div>
+
+
+    <script src="~/Scripts/custom.js"></script>
+
+</body>
+</html>

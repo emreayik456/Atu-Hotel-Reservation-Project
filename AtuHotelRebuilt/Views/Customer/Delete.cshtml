@@ -1,0 +1,70 @@
+﻿@model AtuHotelRebuilt.Models.Customer
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+    <link rel="stylesheet" href="~/Content/login.css">
+</head>
+<body>
+   
+
+    <div class="signup-container">
+        <div class="signup-form">
+            <div class="row">
+                <h3>Are you sure you want to delete this?</h3>
+                <!-- Sağ Kolon -->
+                <div class="col-md-6 form-group">
+                    <label for="fname">First Name</label>
+                    <p>@Model.fname</p>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="lname">Last Name</label>
+                    <p>@Model.lname</p>
+                </div>
+
+                <!-- Tek Kolon (İki sütun boyunca yayılır) -->
+                <div class="col-md-6 form-group">
+                    <label for="birthdate">Birth Date</label>
+                    <p>@Model.birthdate.ToString("dd.MM.yyyy")</p>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="phone">Phone</label>
+                    <p>@Model.phone</p>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="email">Email</label>
+                    <p>@Model.email</p>
+                </div>
+                <div class="col-md-6 form-group">
+                    @if (Model.gender == false)
+                    {
+                        <label>Gender</label><br>
+                        <p>Male</p>
+                    }
+                    else
+                    {
+                        <label>Gender</label><br>
+                        <p>Female</p>
+                    }
+                    <div class="form-group">
+                        <form action="/Customer/Delete" method="post">
+                            <input type="text" id="tcNumber" name="tcNumber" class="form-control" value="@Model.tcNumber" required style="display: none;" />
+                            <input type="text" id="fname" name="fname" class="form-control" value="@Model.fname" required style="display: none;" />
+                            <button type="submit" class="btn btn-primary w-auto">Delete Customer</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+   
+    
+</body>
+</html>

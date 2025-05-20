@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c8801cff31c14db897c75f77300ec248" Name="Diagram1">
+        <EntityTypeShape EntityType="PROJEModel.Customer" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROJEModel.Department" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROJEModel.Guest" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROJEModel.Reservation" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROJEModel.Room" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROJEModel.RoomArea" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROJEModel.RoomAvailability" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROJEModel.RoomType" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROJEModel.Staff" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROJEModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROJEModel.User" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROJEModel.UserType" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <AssociationConnector Association="PROJEModel.FK_Reservation_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="PROJEModel.FK_User_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="PROJEModel.FK_Staff_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="PROJEModel.FK_Guest_Reservation" ManuallyRouted="false" />
+        <AssociationConnector Association="PROJEModel.FK_Reservation_Room" ManuallyRouted="false" />
+        <AssociationConnector Association="PROJEModel.FK_Room_RoomArea1" ManuallyRouted="false" />
+        <AssociationConnector Association="PROJEModel.FK_Room_RoomAvailability" ManuallyRouted="false" />
+        <AssociationConnector Association="PROJEModel.FK_Room_RoomType" ManuallyRouted="false" />
+        <AssociationConnector Association="PROJEModel.FK_User_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="PROJEModel.FK_User_UserType" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
